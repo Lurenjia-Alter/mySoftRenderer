@@ -29,6 +29,10 @@ struct TGAColor {
     TGAColor(const std::uint8_t *p, const std::uint8_t bpp) : bytespp(bpp) {
         for (int i=bpp; i--; bgra[i] = p[i]);
     }
+    TGAColor(unsigned char v) : bgra(), bytespp(1) {
+        for (int i=0; i<4; i++) bgra[i] = 0;
+        bgra[0] = v;
+    }
     std::uint8_t& operator[](const int i) { return bgra[i]; }
 };
 
